@@ -4,7 +4,7 @@ function catFactory()
     {
         return mass[Math.floor(Math.random() * mass.length)];
     }
-
+ 
     var CatFac = {}; /*создание котообъекта*/
     var mass_name = ['Айсберг','Аскольд','Астерикс' ,'Аякс'     ,'Артур'    ,'Асклепий','Арес'    ,'Атос'    ,'Арамис'  ,'Август'  ,'Альбус'  ,'Алмаз'  ,
                      'Васаби' ,'Винсент','Валдис'   ,'Вирус'    ,'Ватсон'   ,'Висмут'  ,'Вермут'  ,'Витас'   ,'Витязь'  ,'Влас'    ,'Василек' ,'Вольтер',
@@ -46,20 +46,19 @@ function catsGroupGenerate(n0)
     return arraCatFac;
 }
 
-var n=3;
 
-console.log (" ");
-console.log ("КотоКонстантныйЛист на",n,"котов");
 
-//catsGroupGenerate(n);
+
+
 
 /************************************************************************************************ *//**/
+var n=5;
+console.log (" ");
+console.log ("КотоКонстантныйЛист на",n,"котов");
 const list = catsGroupGenerate(n);
-
-console.log (" Содержимое LIST =\n",list);
+//console.log (" Содержимое LIST =\n",list);
 //console.log (" list[2].gender=",list[2].gender);
-//console.log (" list[0].age   =",list[0].age);
-//console.log (" list[1].name  =",list[1].name);
+
 
 function catMen(catsGGList)
 {/* - котов мужского пола /**/
@@ -87,9 +86,9 @@ function catMen(catsGGList)
      }
     return arraCatMen;
 }
-console.log (" catMen GO  --------------------------------------------------------------------------------------------");
+console.log ("-------------------------------------------------- func1 catMen GO  -------------------------------------------");
 catMen(list);
-console.log (" catMen END --------------------------------------------------------------------------------------------");
+console.log ("-------------------------------------------------- catMen END --------------------------------------------------");
 
 function catName(catsGGList)
 {/* - имен /**/
@@ -102,22 +101,48 @@ function catName(catsGGList)
      console.log (" Cat Name All=",arraCatName);   
      return arraCatName;
 }
-console.log (" catName GO  --------------------------------------------------------------------------------------------");
+console.log (" ");
+console.log ("-------------------------------------------------- func2 catName GO  -------------------------------------------");
 catName(list);
-console.log (" catName END --------------------------------------------------------------------------------------------");
+console.log ("-------------------------------------------------- catName END -------------------------------------------------");
 
-function catOld(catsGGList)
+function catOld(catsGGList,n0)
 {/* - n самых старых котов (функция также принимает параметр n - максимальный размер результата)   /**/
-    for (var i=0; i<n; i++)
+    var t_arracatAge=[]; 
+    //var tt_catAge=0; 
+    //var tt_catAge_i=0;
+    
+    
+    for (var i0=0; i0<n0; i0++)
     {
-
+        t_arracatAge[i0]=catsGGList[i0].age;
     }
+    console.log(" \nfufel\n",t_arracatAge);
+
+
+    
+
+    for (var i=0; i<catsGGList.length-1; i++)
+    { 
+        for (var j=i+1; j<=catsGGList.length; j++)
+        if (t_catAge[i].age > t_catAge[j].age)
+        {
+
+            tt_catAge=t_catAge[i]; tt_catAge_i=[i];
+            t_catAge[i]=t_catAge[j];
+            t_catAge[j]=tt_catAge[tt_catAge_i];
+        }
+    }
+    console.log(" ",t_catAge_i);
     return 0;
 }
-
-function catKid(catsGGList)
+console.log (" ");
+console.log ("-------------------------------------------------- func2 catOld GO  --------------------------------------------");
+catOld(list,n);
+console.log ("-------------------------------------------------- catOld END --------------------------------------------------");
+function catKid(catsGGList,n0)
 {/* - имен n самых молодых кошек  (функция также принимает параметр n - максимальный размер результата)   /**/
-    for (var i=0; i<n; i++)
+    for (var i=0; i<n0; i++)
     {
 
     }
@@ -134,3 +159,4 @@ function catKid(catsGGList)
 /* - имен n самых молодых кошек                                                 /**/
 /*      (функция также принимает параметр n - максимальный размер результата)   /**/
 /* ---------------------------------------------------------------------------- /**/
+console.log (" END");
