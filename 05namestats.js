@@ -1,6 +1,10 @@
 
+const list = catsGroupGenerate(999)  
+function nameStats(list)
+{
 
-
+}
+nameStats(list);
 /* ---------------------------------------------------------------------------- /**/
 /* Задача 5                                                                     /**/
 /* const list = catsGroupGenerate(999)                                          /**/
