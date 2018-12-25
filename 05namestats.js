@@ -1,8 +1,8 @@
 
-const list = catsGroupGenerate(999)  
+const list = catsGroupGenerate(999)
 function nameStats(list)
 {
-
+//поиск по именам
 }
 nameStats(list);
 /* ---------------------------------------------------------------------------- /**/
