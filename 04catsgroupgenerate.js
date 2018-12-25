@@ -1,3 +1,14 @@
+/* ---------------------------------------------------------------------------- /**/
+/* Задача 4                                                                     /**/
+/* Const list = catsGroupGenerate(999)                                          /**/
+/* Написать функции, которые принимая list вернут массив:                       /**/
+/* - котов мужского пола                                                        /**/
+/* - имен                                                                       /**/
+/* - n самых старых котов                                                       /**/
+/*      (функция также принимает параметр n - максимальный размер результата)   /**/
+/* - имен n самых молодых кошек                                                 /**/
+/*      (функция также принимает параметр n - максимальный размер результата)   /**/
+/* ---------------------------------------------------------------------------- /**/
 function catFactory()
 {
     function pick(mass)
@@ -41,22 +52,17 @@ function catsGroupGenerate(n0)
 {
     var arraCatFac = [];
 
-    for (var i=0; i<n; i++)
+    for (var i=0; i<n0; i++)
     {
-        //console.log(" ");
-        //console.log("Num= ",1+i);
-        //console.log("",arraCatFac[i]=catFactory());
         arraCatFac[i]=catFactory();
     }
     return arraCatFac;
 }
 /************************************************************************************************ *//**/
-var n=10;
+var n=10; //999;
 console.log (" ");
 console.log ("КотоКонстантныйЛист на",n,"котов");
-const list = catsGroupGenerate(n);
-//console.log (" Содержимое LIST =\n",list);
-//console.log (" list[2].gender=",list[2].gender);
+const list = catsGroupGenerate(n); //Const list = catsGroupGenerate(999) N - для теста
 
 
 function catMen(catsGGList)
@@ -65,21 +71,16 @@ function catMen(catsGGList)
 
     var counter = 0;
 
-    for (var i=0; i<n; i++)
-    {
-        if (catsGGList[i].gender === "Мужской")
-        {
+    for (var i=0; i<n; i++){
+        if (catsGGList[i].gender === "Мужской"){            
             arraCatMen[counter] = catsGGList[i];
-            //console.log (" Super Man =",arraCatMen[counter]);
             counter++;
         }
      }
-     if (counter===0)
-     {
+     if (counter===0){
          console.log (" Мужиков нет ");
      }
-     else
-     {
+     else{
         console.log (" - котов мужского пола -\n",counter);
         console.log (" ",arraCatMen);
      }
@@ -144,15 +145,3 @@ console.log (" ");
 console.log ("------------------------------ func4 catKid GO  --------------------------------------------");
 console.log (" - имен n самых молодых кошек -\n",catKid(list,4));
 console.log ("------------------------------ catKid END --------------------------------------------------");
-/* ---------------------------------------------------------------------------- /**/
-/* Задача 4                                                                     /**/
-/* Const list = catsGroupGenerate(999)                                          /**/
-/* Написать функции, которые принимая list вернут массив:                       /**/
-/* - котов мужского пола                                                        /**/
-/* - имен                                                                       /**/
-/* - n самых старых котов                                                       /**/
-/*      (функция также принимает параметр n - максимальный размер результата)   /**/
-/* - имен n самых молодых кошек                                                 /**/
-/*      (функция также принимает параметр n - максимальный размер результата)   /**/
-/* ---------------------------------------------------------------------------- /**/
-console.log (" END");
