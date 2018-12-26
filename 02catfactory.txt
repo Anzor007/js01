@@ -1,0 +1,8 @@
+ 
+ Котогенератор 
+  { name: 'Бакстер',
+  age: '10',
+  gender: 'Женский',
+  legsCount: '4',
+  tailLength: '11' }
+ 

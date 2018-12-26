@@ -1,0 +1,5 @@
+ 
+list           =  [ 'qq', 'ww', 'ee', 'rr', 'tt', 'yy', 'uu', 'ii' ]
+list.length    =  8
+pick(list)     =  ii
+ 

@@ -7,15 +7,12 @@
 /* за исключением gender (всегда будет равен ‘M’).                              /**/
 /* В catsGroupGenerate добавить второй опциональный аргумент ‘defaults’.        /**/
 /* ---------------------------------------------------------------------------- /**/
-function catFactory()
-{
-    function pick(mass)
-    {
-        return mass[Math.floor(Math.random() * mass.length)];
-    }
 
-    var CatFac = {}; /*создание котообъекта*/
-    var mass_name = ['Айсберг','Аскольд','Астерикс' ,'Аякс'     ,'Артур'    ,'Асклепий','Арес'    ,'Атос'    ,'Арамис'  ,'Август'  ,'Альбус'  ,'Алмаз'  ,
+function catFactory(defaults)
+{
+    function pick(mass) {   return mass[Math.floor(Math.random() * mass.length)];   }
+    
+    var name = [     'Айсберг','Аскольд','Астерикс' ,'Аякс'     ,'Артур'    ,'Асклепий','Арес'    ,'Атос'    ,'Арамис'  ,'Август'  ,'Альбус'  ,'Алмаз'  ,
                      'Васаби' ,'Винсент','Валдис'   ,'Вирус'    ,'Ватсон'   ,'Висмут'  ,'Вермут'  ,'Витас'   ,'Витязь'  ,'Влас'    ,'Василек' ,'Вольтер',
                      'Густав' ,'Гелиос' ,'Гефест'   ,'Гусар'    ,'Гизмо'    ,'Гусляр'  ,'Гораций' ,'Ганс'    ,'Грызя'   ,'Гиннесс' ,'Гуффи'   ,'Голиаф' ,
                      'Джакс'  ,'Декстер','Диксон'   ,'Деймос'   ,'Даллас'   ,'Декарт'  ,'Джерри'  ,'Джексон' ,'Джедай'  ,'Дениска' ,'Джойстик','Дорофей',
@@ -27,16 +24,58 @@ function catFactory()
                      'Кекс'   ,'Кузьма' ,'Круассан' ,'Карабас'  ,'Космос'   ,'Конфуций','Кёртис'  ,'Коржик'  ,'Косинус' ,'Колбасыч','Каспер'  ,'Кастор' ,
                      'Ластик' ,'Лизун'  ,'Лютик'    ,'Лоскутик' ,'Люциус'   ,'Лакмус'  ,'Ляпис'   ,'Люсьен'  ,'Ланселот','Лунатик' ,'Лоуренс' ,'Лисенок',
                      'Мэйсон' ,'Маркиз' ,'Мультик'  ,'Матроскин','Марсианин','Мушкетер','Максимус','Моцарт'  ,'Муфаса'  ,'Мяут'    ,'Морсик'  ,'Маркус'  ];
-    var mass_age = ['1','2','3','5','7','9','10','13'];
-    var mass_gender = ['Мужской','Женский','Непонятный'];
-    var mass_legsCount = ['4','3'];
-    var mass_tailLength  = ['1','3','5','7','9','11','13','15','25'];
+    var age = ['1','2','3','5','7','9','10','13'];
+    var gender = ['Мужской','Женский','Непонятный'];
+    var legsCount = ['4','3'];
+    var tailLength  = ['1','3','5','7','9','11','13','15','25'];
     
-    CatFac.name = pick(mass_name);
-    CatFac.age = pick(mass_age);
-    CatFac.gender = pick(mass_gender);
-    CatFac.legsCount = pick(mass_legsCount);
-    CatFac.tailLength  = pick(mass_tailLength);
-
-    return CatFac;
+    var CatFac = {}; /*создание котообъекта*/
+  
+    if (typeof defaults !== 'undefined')
+    {
+        CatFac.name = defaults.name || pick(name);
+        CatFac.age = defaults.age || pick(age);
+        CatFac.gender = defaults.gender || pick(gender);
+        CatFac.legsCount = defaults.legsCount || pick(legsCount);
+        CatFac.tailLength  = defaults.tailLength || pick(tailLength);
+        
+        
+        //return CatFac;
+    }
+    else
+    {
+        CatFac.name = pick(name);
+        CatFac.age = pick(age);
+        CatFac.gender = pick(gender);
+        CatFac.legsCount = pick(legsCount);
+        CatFac.tailLength  = pick(tailLength);
+    }
+ return CatFac;
 }
+
+function catsGroupGenerate(n0,defaults)
+{
+    var arraCatFac = [];
+    if (typeof defaults === 'undefined')
+    {
+        for (var i=0; i<n0; i++)    {   arraCatFac[i]=catFactory(); }
+    }
+    else
+    {
+        for (var i=0; i<n0; i++)    {   arraCatFac[i]=catFactory(defaults); }
+    }
+    return arraCatFac;
+}
+
+
+
+console.log("\n catFactory({gender:'ops', name:'упс', age:'ops'})");
+console.log("\n ",catFactory({gender:'ops', name:'упс', age:'ops'}));
+console.log("\n catFactory()");
+console.log("\n ",catFactory());
+var n=3;
+console.log ("\nКотоГенератор на",n,"котикатов");
+console.log ("\n  catsGroupGenerate(n)");
+console.log ("\n ", catsGroupGenerate(n));
+console.log ("\n  catsGroupGenerate(n, { age:'ops',legsCount:'ops'})");
+console.log ("\n ", catsGroupGenerate(n, { age:'ops',legsCount:'ops'}));

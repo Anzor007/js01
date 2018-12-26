@@ -1,0 +1,54 @@
+
+ catFactory({gender:'ops', name:'упс', age:'ops'})
+
+  { name: 'упс',
+  age: 'ops',
+  gender: 'ops',
+  legsCount: '4',
+  tailLength: '11' }
+
+ catFactory()
+
+  { name: 'Гефест',
+  age: '10',
+  gender: 'Мужской',
+  legsCount: '4',
+  tailLength: '5' }
+
+КотоГенератор на 3 котикатов
+
+  catsGroupGenerate(n)
+
+  [ { name: 'Витас',
+    age: '7',
+    gender: 'Непонятный',
+    legsCount: '3',
+    tailLength: '11' },
+  { name: 'Конфуций',
+    age: '2',
+    gender: 'Непонятный',
+    legsCount: '4',
+    tailLength: '15' },
+  { name: 'Захар',
+    age: '9',
+    gender: 'Женский',
+    legsCount: '3',
+    tailLength: '11' } ]
+
+  catsGroupGenerate(n, { age:'ops',legsCount:'ops'})
+
+  [ { name: 'Жорик',
+    age: 'ops',
+    gender: 'Женский',
+    legsCount: 'ops',
+    tailLength: '9' },
+  { name: 'Карабас',
+    age: 'ops',
+    gender: 'Мужской',
+    legsCount: 'ops',
+    tailLength: '3' },
+  { name: 'Каспер',
+    age: 'ops',
+    gender: 'Непонятный',
+    legsCount: 'ops',
+    tailLength: '3' } ]

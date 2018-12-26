@@ -49,63 +49,58 @@ function catsGroupGenerate(n0)
     return arraCatFac;
 }
 /************************************************************************************************ *//**/
-function nameStats(list)
-{
-    console.log (" ",list);
-}
-var n=0; //999;
+
+var n=999;
 console.log (" ");
 console.log ("КотоКонстантныйЛист на",n,"котов");
-const list = catsGroupGenerate(n)
-console.log (" --- GO ---");
-nameStats(list);
-console.log (" --- END ---");
+const list = catsGroupGenerate(n);
 
+function nameStats1(cotolist)
+{
+    var arraN = {name:[] } ;
 
-
-
-console.log (" --- !! ---");
-
-
-var arr = [1, -1, 2, -2, 3];
-
-var positiveArr = arr.filter(function(number) {
-  return number > 0;
-});
-
-console.log(" ", positiveArr ); // 1,2,3
-
-
-
-
-
-console.log (" --- !!! ---");
-
-var arr = [1, 2, 1, 4, 1]
-
-
-// для каждого элемента массива запустить функцию,
-// промежуточный результат передавать первым аргументом далее
-var result = arr.reduce(function(sum, current) {
-  return sum + current;
-}, 0);
-
-console.log(" ", result ); // 15
-var map1= [];
-for (var i5=0; i5<arr.length; i5++){
-console.log(" ",arr.map(x => x === arr[i5]));
+    for (var i = 0; i < cotolist.length; i++)
+    {
+        arraN.name[i]= cotolist[i].name;
+    }
+    //console.log(" ",arraN);
+    var ameN={nam:[],cou:[]};
+    var counter=0;
+    for (var i5 = 0; i5 < arraN.name.length; i5++) 
+    {   
+        counter=0;
+        ameN.nam.push(arraN.name[i5]);
+        for (var j5 = i5+1; j5 < arraN.name.length; j5++) 
+        {
+            if (arraN.name[i5]===arraN.name[j5])
+            {
+                counter=counter+1;
+                arraN.name.splice(j5,1);
+                j5=j5-1;
+            }   
+        }
+        ameN.cou.push(counter+1);
+    }
+    for (var i = 0; i < ameN.nam.length; i++) 
+    {
+        console.log(" ",ameN.nam[i],": ",ameN.cou[i]);
+    }
 }
-console.log (" --- !!!! ---");
+nameStats1(list);
 
 
-list.forEach(function(element) {
-    console.log(element);
-  });
-//console.log(map1);
+function nameStats0(cotolist)
+{
+/*for (var i5 = 0; i5 < arraN.name.length-1; i5++)
+{
+    var y=arraN.name[i5];
+    ameN.nam=arraN.name.filter(function(x){return x===arraN.name[i5];});
+    ameN.cou=ameN.nam.length;
+    console.log(" ameN",ameN);
+}
+*/
+//console.log(" arraN",arraN);
+//console.log(" amen",ameN);
+}
 
-var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
 
-const result = words.filter(word => word.length > 6);
-
-console.log(result);
-// expected output: Array ["exuberant", "destruction", "present"]

@@ -84,7 +84,8 @@ function catMen(catsGGList)
         console.log (" - котов мужского пола -\n",counter);
         console.log (" ",arraCatMen);
      }
-    return arraCatMen;
+     
+     return arraCatMen;
 }
 console.log ("------------------------------ func1 catMen GO  --------------------------------------------");
 catMen(list);

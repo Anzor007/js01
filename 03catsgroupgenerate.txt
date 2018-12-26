@@ -1,0 +1,38 @@
+ 
+Котогенератор на 5 котов
+ 
+Num=  1
+ { name: 'Маркиз',
+  age: '7',
+  gender: 'Женский',
+  legsCount: '3',
+  tailLength: '9' }
+ 
+Num=  2
+ { name: 'Йогурт',
+  age: '3',
+  gender: 'Непонятный',
+  legsCount: '3',
+  tailLength: '5' }
+ 
+Num=  3
+ { name: 'Морсик',
+  age: '3',
+  gender: 'Женский',
+  legsCount: '3',
+  tailLength: '5' }
+ 
+Num=  4
+ { name: 'Гиннесс',
+  age: '1',
+  gender: 'Непонятный',
+  legsCount: '3',
+  tailLength: '1' }
+ 
+Num=  5
+ { name: 'Бакстер',
+  age: '5',
+  gender: 'Непонятный',
+  legsCount: '3',
+  tailLength: '13' }
+----------------------- END -----------------------
