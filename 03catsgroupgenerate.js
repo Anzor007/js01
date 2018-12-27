@@ -3,6 +3,8 @@
 /* Написать function catsGroupGenerate(n),                                      /**/
 /* которая возвращает массив объектов, полученных из котогенератора, длиной n.  /**/
 /* ---------------------------------------------------------------------------- /**/
+var catfact = require('./02catfactory.js');
+/*
 function catFactory()
 {
     function pick(mass)
@@ -10,7 +12,7 @@ function catFactory()
         return mass[Math.floor(Math.random() * mass.length)];
     }
 
-    var CatFac = {}; /*создание котообъекта*/
+    var catFac = {}; 
     var mass_name = ['Айсберг','Аскольд','Астерикс' ,'Аякс'     ,'Артур'    ,'Асклепий','Арес'    ,'Атос'    ,'Арамис'  ,'Август'  ,'Альбус'  ,'Алмаз'  ,
                      'Васаби' ,'Винсент','Валдис'   ,'Вирус'    ,'Ватсон'   ,'Висмут'  ,'Вермут'  ,'Витас'   ,'Витязь'  ,'Влас'    ,'Василек' ,'Вольтер',
                      'Густав' ,'Гелиос' ,'Гефест'   ,'Гусар'    ,'Гизмо'    ,'Гусляр'  ,'Гораций' ,'Ганс'    ,'Грызя'   ,'Гиннесс' ,'Гуффи'   ,'Голиаф' ,
@@ -28,30 +30,30 @@ function catFactory()
     var mass_legsCount = ['4','3'];
     var mass_tailLength  = ['1','3','5','7','9','11','13','15','25'];
     
-    CatFac.name = pick(mass_name);
-    CatFac.age = pick(mass_age);
-    CatFac.gender = pick(mass_gender);
-    CatFac.legsCount = pick(mass_legsCount);
-    CatFac.tailLength  = pick(mass_tailLength);
+    catFac.name = pick(mass_name);
+    catFac.age = pick(mass_age);
+    catFac.gender = pick(mass_gender);
+    catFac.legsCount = pick(mass_legsCount);
+    catFac.tailLength  = pick(mass_tailLength);
 
-    return CatFac;
+    return catFac;
 }
-
+*/
 function catsGroupGenerate(n0)
 {
     var arraCatFac = [];
 
     for (var i=0; i<n0; i++)
     {
-        console.log(" ");
-        console.log("Num= ",1+i);
-        console.log("",arraCatFac[i]=catFactory());
+        //arraCatFac[i]=catFactory();
+        arraCatFac[i]=catfact();
     }
     return arraCatFac;
 }
 
 var n=5;
-console.log (" ");
-console.log ("Котогенератор на",n,"котов");
-catsGroupGenerate(n);
-console.log ("----------------------- END -----------------------");
+//console.log(" ugu\n",catsGroupGenerate(n));
+//catsGroupGenerate(n);
+
+
+module.exports = catsGroupGenerate;

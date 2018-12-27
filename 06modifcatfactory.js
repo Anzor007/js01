@@ -7,10 +7,11 @@
 /* за исключением gender (всегда будет равен ‘M’).                              /**/
 /* В catsGroupGenerate добавить второй опциональный аргумент ‘defaults’.        /**/
 /* ---------------------------------------------------------------------------- /**/
+var pick99 = require('./01pick.js');
 
 function catFactory(defaults)
 {
-    function pick(mass) {   return mass[Math.floor(Math.random() * mass.length)];   }
+    //function pick(mass) {   return mass[Math.floor(Math.random() * mass.length)];   }
     
     var name = [     'Айсберг','Аскольд','Астерикс' ,'Аякс'     ,'Артур'    ,'Асклепий','Арес'    ,'Атос'    ,'Арамис'  ,'Август'  ,'Альбус'  ,'Алмаз'  ,
                      'Васаби' ,'Винсент','Валдис'   ,'Вирус'    ,'Ватсон'   ,'Висмут'  ,'Вермут'  ,'Витас'   ,'Витязь'  ,'Влас'    ,'Василек' ,'Вольтер',
@@ -29,53 +30,44 @@ function catFactory(defaults)
     var legsCount = ['4','3'];
     var tailLength  = ['1','3','5','7','9','11','13','15','25'];
     
-    var CatFac = {}; /*создание котообъекта*/
+    var CatFac = {}; 
   
     if (typeof defaults !== 'undefined')
     {
-        CatFac.name = defaults.name || pick(name);
-        CatFac.age = defaults.age || pick(age);
-        CatFac.gender = defaults.gender || pick(gender);
-        CatFac.legsCount = defaults.legsCount || pick(legsCount);
-        CatFac.tailLength  = defaults.tailLength || pick(tailLength);
+        CatFac.name = defaults.name || pick99(name);
+        CatFac.age = defaults.age || pick99(age);
+        CatFac.gender = defaults.gender || pick99(gender);
+        CatFac.legsCount = defaults.legsCount || pick99(legsCount);
+        CatFac.tailLength  = defaults.tailLength || pick99(tailLength);
         
         
         //return CatFac;
     }
     else
     {
-        CatFac.name = pick(name);
-        CatFac.age = pick(age);
-        CatFac.gender = pick(gender);
-        CatFac.legsCount = pick(legsCount);
-        CatFac.tailLength  = pick(tailLength);
+        CatFac.name = pick99(name);
+        CatFac.age = pick99(age);
+        CatFac.gender = pick99(gender);
+        CatFac.legsCount = pick99(legsCount);
+        CatFac.tailLength  = pick99(tailLength);
     }
  return CatFac;
 }
 
-function catsGroupGenerate(n0,defaults)
-{
+function catsGroupGenerate(n0,defaults){
     var arraCatFac = [];
-    if (typeof defaults === 'undefined')
-    {
-        for (var i=0; i<n0; i++)    {   arraCatFac[i]=catFactory(); }
-    }
-    else
-    {
-        for (var i=0; i<n0; i++)    {   arraCatFac[i]=catFactory(defaults); }
-    }
+    for (var i=0; i<n0; i++){
+        arraCatFac[i]=catFactory(defaults);
+    } 
     return arraCatFac;
 }
 
 
 
-console.log("\n catFactory({gender:'ops', name:'упс', age:'ops'})");
-console.log("\n ",catFactory({gender:'ops', name:'упс', age:'ops'}));
-console.log("\n catFactory()");
-console.log("\n ",catFactory());
-var n=3;
-console.log ("\nКотоГенератор на",n,"котикатов");
-console.log ("\n  catsGroupGenerate(n)");
-console.log ("\n ", catsGroupGenerate(n));
-console.log ("\n  catsGroupGenerate(n, { age:'ops',legsCount:'ops'})");
-console.log ("\n ", catsGroupGenerate(n, { age:'ops',legsCount:'ops'}));
+//console.log("\n ",catFactory({gender:'ops', name:'упс', age:'ops'}));
+//console.log("\n ",catFactory());
+//var n=3;
+//console.log ("\n ", catsGroupGenerate(n));
+//console.log ("\n ", catsGroupGenerate(n, { age:'ops',legsCount:'ops'}));
+
+module.exports = catsGroupGenerate;
